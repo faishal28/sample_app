@@ -31,5 +31,19 @@ RSpec.describe "LayoutLinks", type: :request do
       visit 'signup'
       expect(page).to have_title("#{@base_title} | Signup")
     end
+    
+    it "should have right links on layout" do
+      visit '/'
+      click_link "About"
+      expect(page).to have_title("#{@base_title} | About")
+      click_link "Contacts"
+      expect(page).to have_title("#{@base_title} | Contacts")
+      click_link "Help"
+      expect(page).to have_title("#{@base_title} | Help")
+      click_link "Home"
+      expect(page).to have_title("#{@base_title} | Home")
+      click_link "Signup"
+      expect(page).to have_title("#{@base_title} | Signup")
+    end
   end
 end
